@@ -16,8 +16,12 @@
                 <strong>Phone:</strong> {{ $facility->phone }}<br>
                 <strong>Email:</strong> {{ $facility->email }}<br>
                 <strong>Description:</strong> {{ $facility->description }}
+                <strong>WWW:</strong> {{ $facility->www }}
             </li>
         @endforeach
     </ul>
+    <div class="pagination">
+        {{ $facilities->links() }}
+    </div>
 </body>
 </html>

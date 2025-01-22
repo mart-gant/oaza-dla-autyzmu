@@ -14,7 +14,7 @@ class FacilityController extends Controller
      */
     public function index()
     {
-        $facilities = Facility::all();
+        $facilities = Facility::paginate(15);
         return view('facilities.index', compact('facilities'));
     }
     
