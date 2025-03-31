@@ -9,17 +9,20 @@ class Facility extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'facilities'; // Określenie nazwy tabeli
+
     protected $fillable = [
-        'name',
-        'address',
-        'phone',
-        'email',
-        'description',
-        'www',
+        'user_id', 'name', 'description', 'address', 'city', 'province', 'postal_code', 
+        'phone', 'email', 'latitude', 'longitude', 'available_spots'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
