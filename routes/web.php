@@ -77,3 +77,7 @@ Route::middleware(['auth'])->group(function () {
     });
 //  **Wylogowanie użytkownika**
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
