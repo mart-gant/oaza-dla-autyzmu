@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Facility;
+use Illuminate\Support\Facades\Auth;
 
 class FacilityController extends Controller
 {
@@ -37,17 +38,20 @@ class FacilityController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required',
-            'email' => 'required|email',
-            'description' => 'nullable',
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'province' => 'required|string|max:255',
+            'phone_number' => 'nullable|string|max:255',
+            'website' => 'nullable|url|max:255',
         ]);
         
-        Facility::create($request->all());
+        $facility = new Facility($request->all());
+        $facility->user_id = Auth::id();
+        $facility->save();
         
-        return redirect()->route('facilities.index')
-        ->with('success', 'Facility created successfully.');
+        return redirect()->route('facilities.show', $facility)
+            ->with('success', 'Placówka została pomyślnie utworzona.');
     }
     
     /**
@@ -82,17 +86,18 @@ class FacilityController extends Controller
     public function update(Request $request, Facility $facility)
     {
         $request->validate([
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required',
-            'email' => 'required|email',
-            'description' => 'nullable',
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'province' => 'required|string|max:255',
+            'phone_number' => 'nullable|string|max:255',
+            'website' => 'nullable|url|max:255',
         ]);
         
         $facility->update($request->all());
         
-        return redirect()->route('facilities.index')
-        ->with('success', 'Facility updated successfully.');
+        return redirect()->route('facilities.show', $facility)
+            ->with('success', 'Dane placówki zostały pomyślnie zaktualizowane.');
     }
     
     /**
@@ -106,8 +111,6 @@ class FacilityController extends Controller
         $facility->delete();
         
         return redirect()->route('facilities.index')
-        ->with('success', 'Facility deleted successfully.');
+            ->with('success', 'Placówka została pomyślnie usunięta.');
     }
 }
-
-

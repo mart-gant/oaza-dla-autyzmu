@@ -21,11 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'profile_photo',  // Zdjęcie profilowe
-        'interests',      // Zainteresowania
-        'support_preferences', // Preferencje wsparcia
-        'is_specialist',  // Czy użytkownik to specjalista?
-        'specialization', // Opis specjalizacji (dla specjalistów)
+        'profile_photo',
+        'interests',
+        'support_preferences',
+        'is_specialist',
+        'specialization',
+        'description',
     ];
     
     /**

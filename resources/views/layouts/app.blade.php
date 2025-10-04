@@ -31,6 +31,10 @@
             <main>
                 {{ $slot }}
             </main>
+
+            <footer class="py-4 text-center text-sm text-gray-500 dark:text-gray-400">
+                Copyright by Marcin Gantkowski
+            </footer>
         </div>
     </body>
 </html>
