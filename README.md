@@ -128,15 +128,20 @@ npm run dev
 W pliku `.env` ustaw parametry serwera SMTP:
 
 ```env
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USERNAME=your-username
-MAIL_PASSWORD=your-password
+MAIL_MAILER=failover
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your@gmail.com
+MAIL_PASSWORD=your-app-password-without-spaces
 MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=noreply@oaza-autyzm.pl
+MAIL_TIMEOUT=15
+MAIL_FROM_ADDRESS=your@gmail.com
 MAIL_FROM_NAME="${APP_NAME}"
+MAIL_TO_ADDRESS=kontakt@twoja-domena.pl
 ```
+
+> Laravel Cloud: upewnij się, że wszystkie zmienne `MAIL_*` są ustawione w panelu środowiska (Production),
+> a po zmianie konfiguracji wykonaj redeploy. Dla Gmail używaj **App Password bez spacji**.
 
 ### Konfiguracja storage
 

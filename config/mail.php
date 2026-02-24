@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'log'),
+    'default' => env('MAIL_MAILER', 'failover'),
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
             'port' => env('MAIL_PORT', 2525),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
-            'timeout' => null,
+            'timeout' => env('MAIL_TIMEOUT', 15),
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
 
@@ -107,6 +107,13 @@ return [
     | used globally for all emails that are sent by your application.
     |
     */
+
+
+    'contact' => [
+        'to' => [
+            'address' => env('MAIL_TO_ADDRESS', env('MAIL_FROM_ADDRESS', 'hello@example.com')),
+        ],
+    ],
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
