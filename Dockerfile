@@ -49,14 +49,14 @@ RUN composer install \
 COPY . .
 COPY --from=frontend /app/public/build ./public/build
 
+RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
 RUN php artisan package:discover --ansi
-
-RUN mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache
 
 ENV APP_ENV=production
 ENV APP_DEBUG=false
 ENV LOG_CHANNEL=stderr
+ENV VIEW_COMPILED_PATH=/var/www/html/storage/framework/views
 ENV PORT=8080
 
 EXPOSE 8080
