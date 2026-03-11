@@ -47,6 +47,8 @@ RUN composer install \
     --no-scripts
 
 COPY . .
+# Ensure runtime uses Render environment variables, not a baked-in .env
+RUN rm -f .env
 COPY --from=frontend /app/public/build ./public/build
 
 RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
