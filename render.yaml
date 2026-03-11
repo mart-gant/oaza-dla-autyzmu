@@ -1,4 +1,4 @@
-﻿services:
+services:
   - type: web
     name: oaza-dla-autyzmu
     runtime: docker
@@ -8,6 +8,8 @@
     envVars:
       - key: APP_ENV
         value: production
+      - key: APP_NAME
+        value: "Oaza dla Autyzmu"
       - key: APP_DEBUG
         value: "false"
       - key: LOG_CHANNEL
@@ -38,6 +40,12 @@
         fromDatabase:
           name: oaza-db
           property: password
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
       - key: REDIS_CLIENT
         value: phpredis
       - key: REDIS_HOST
