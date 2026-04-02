@@ -63,4 +63,7 @@ ENV PORT=8080
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT}"]
+COPY entrypoint.sh /var/www/html/entrypoint.sh
+RUN chmod +x /var/www/html/entrypoint.sh
+
+CMD ["/var/www/html/entrypoint.sh"]
