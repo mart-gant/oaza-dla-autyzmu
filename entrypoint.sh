@@ -10,6 +10,12 @@ done
 # Upewnij się że katalog istnieje
 mkdir -p /var/www/html/database
 
+# Usuń stary plik bazy danych jeśli istnieje
+if [ -f "/var/www/html/database/database.sqlite" ]; then
+  echo "Removing old database file..."
+  rm -f /var/www/html/database/database.sqlite
+fi
+
 # Uruchom migracje
 echo "Running migrations..."
 php artisan migrate --force
