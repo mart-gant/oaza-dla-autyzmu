@@ -21,15 +21,17 @@ class EventFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = $this->faker ?? \Faker\Factory::create();
+
         return [
-            'title' => $this->faker->sentence(3),
-            'description' => $this->faker->paragraph(),
-            'start_date' => $this->faker->dateTimeBetween('+1 days', '+30 days'),
-            'end_date' => $this->faker->dateTimeBetween('+1 days', '+30 days'),
-            'location' => $this->faker->city(),
+            'title' => $faker->sentence(3),
+            'description' => $faker->paragraph(),
+            'start_date' => $faker->dateTimeBetween('+1 days', '+30 days'),
+            'end_date' => $faker->dateTimeBetween('+1 days', '+30 days'),
+            'location' => $faker->city(),
             'facility_id' => null,
             'user_id' => User::factory(),
-            'is_public' => $this->faker->boolean(80), // 80% publiczne
+            'is_public' => $faker->boolean(80), // 80% publiczne
         ];
     }
 }

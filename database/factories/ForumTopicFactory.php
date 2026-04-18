@@ -18,10 +18,12 @@ class ForumTopicFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = $this->faker ?? \Faker\Factory::create();
+
         return [
             'forum_category_id' => ForumCategory::factory(),
             'user_id' => User::factory(),
-            'title' => $this->faker->sentence(),
+            'title' => $faker->sentence(),
         ];
     }
 }

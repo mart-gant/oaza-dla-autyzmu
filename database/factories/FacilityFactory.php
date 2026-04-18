@@ -20,20 +20,22 @@ class FacilityFactory extends Factory
      */
     public function definition(): array
     { 
+        $faker = $this->faker ?? \Faker\Factory::create();
+
         return [
             'user_id' => User::factory(),
-            'name' => $this->faker->company,
-            'type' => $this->faker->randomElement(['szkola', 'przedszkole', 'osrodek_terapeutyczny', 'poradnia', 'fundacja', 'stowarzyszenie', 'inne']),
-            'description' => $this->faker->text,
-            'address' => $this->faker->address,
-            'city' => $this->faker->city,
-            'province' => $this->faker->state,
-            'postal_code' => $this->faker->postcode,
-            'phone' => $this->faker->phoneNumber,
-            'email' => $this->faker->unique()->safeEmail,
-            'latitude' => $this->faker->latitude,
-            'longitude' => $this->faker->longitude,
-            'available_spots' => $this->faker->numberBetween(0, 100),
+            'name' => $faker->company,
+            'type' => $faker->randomElement(['szkola', 'przedszkole', 'osrodek_terapeutyczny', 'poradnia', 'fundacja', 'stowarzyszenie', 'inne']),
+            'description' => $faker->text,
+            'address' => $faker->address,
+            'city' => $faker->city,
+            'province' => $faker->state,
+            'postal_code' => $faker->postcode,
+            'phone' => $faker->phoneNumber,
+            'email' => $faker->unique()->safeEmail,
+            'latitude' => $faker->latitude,
+            'longitude' => $faker->longitude,
+            'available_spots' => $faker->numberBetween(0, 100),
         ];
     }
 }

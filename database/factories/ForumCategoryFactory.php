@@ -16,9 +16,11 @@ class ForumCategoryFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = $this->faker ?? \Faker\Factory::create();
+
         return [
-            'name' => $this->faker->words(3, true),
-            'description' => $this->faker->sentence(),
+            'name' => $faker->words(3, true),
+            'description' => $faker->sentence(),
         ];
     }
 }

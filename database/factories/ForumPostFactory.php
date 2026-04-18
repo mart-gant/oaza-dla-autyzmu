@@ -18,10 +18,12 @@ class ForumPostFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = $this->faker ?? \Faker\Factory::create();
+
         return [
             'forum_topic_id' => ForumTopic::factory(),
             'user_id' => User::factory(),
-            'body' => $this->faker->paragraphs(3, true),
+            'body' => $faker->paragraphs(3, true),
         ];
     }
 }
