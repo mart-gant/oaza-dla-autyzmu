@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\ForumCategory;
 use App\Models\ForumTopic;
 use App\Models\ForumPost;
+use Illuminate\Support\Facades\Hash;
 
 class ForumSeeder extends Seeder
 {
@@ -17,9 +18,26 @@ class ForumSeeder extends Seeder
      */
     public function run()
     {
-        // Create users
-        $user1 = User::factory()->create();
-        $user2 = User::factory()->create();
+        // Create deterministic forum users (no factory needed in production)
+        $user1 = User::firstOrCreate(
+            ['email' => 'forum.user1@oaza.pl'],
+            [
+                'name' => 'Forum User 1',
+                'password' => Hash::make('password'),
+                'role' => 'parent',
+                'email_verified_at' => now(),
+            ]
+        );
+
+        $user2 = User::firstOrCreate(
+            ['email' => 'forum.user2@oaza.pl'],
+            [
+                'name' => 'Forum User 2',
+                'password' => Hash::make('password'),
+                'role' => 'autistic_person',
+                'email_verified_at' => now(),
+            ]
+        );
 
         // Create categories
         $category1 = ForumCategory::create(['name' => 'Ogólne']);

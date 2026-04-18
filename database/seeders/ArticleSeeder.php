@@ -7,6 +7,7 @@ use App\Models\ArticleCategory;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class ArticleSeeder extends Seeder
 {
@@ -50,7 +51,35 @@ class ArticleSeeder extends Seeder
         $users = User::all();
         
         if ($users->isEmpty()) {
-            $users = User::factory(3)->create();
+            $users = collect([
+                User::firstOrCreate(
+                    ['email' => 'article.user1@oaza.pl'],
+                    [
+                        'name' => 'Article User 1',
+                        'password' => Hash::make('password'),
+                        'role' => 'parent',
+                        'email_verified_at' => now(),
+                    ]
+                ),
+                User::firstOrCreate(
+                    ['email' => 'article.user2@oaza.pl'],
+                    [
+                        'name' => 'Article User 2',
+                        'password' => Hash::make('password'),
+                        'role' => 'autistic_person',
+                        'email_verified_at' => now(),
+                    ]
+                ),
+                User::firstOrCreate(
+                    ['email' => 'article.user3@oaza.pl'],
+                    [
+                        'name' => 'Article User 3',
+                        'password' => Hash::make('password'),
+                        'role' => 'therapist',
+                        'email_verified_at' => now(),
+                    ]
+                ),
+            ]);
         }
 
         // Przykładowe artykuły

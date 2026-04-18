@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,35 +14,31 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Create admin user
-        User::factory()->create([
+        User::updateOrCreate(['email' => 'admin@oaza.pl'], [
             'name' => 'Admin',
-            'email' => 'admin@oaza.pl',
-            'password' => bcrypt('Admin@Oaza2026!Secure#'),
+            'password' => Hash::make('Admin@Oaza2026!Secure#'),
             'role' => 'admin',
             'email_verified_at' => now(),
         ]);
 
         // Create test users for different roles
-        User::factory()->create([
+        User::updateOrCreate(['email' => 'jan@example.com'], [
             'name' => 'Jan Kowalski',
-            'email' => 'jan@example.com',
-            'password' => bcrypt('password'),
+            'password' => Hash::make('password'),
             'role' => 'autistic_person',
             'email_verified_at' => now(),
         ]);
 
-        User::factory()->create([
+        User::updateOrCreate(['email' => 'anna@example.com'], [
             'name' => 'Anna Nowak',
-            'email' => 'anna@example.com',
-            'password' => bcrypt('password'),
+            'password' => Hash::make('password'),
             'role' => 'parent',
             'email_verified_at' => now(),
         ]);
 
-        User::factory()->create([
+        User::updateOrCreate(['email' => 'maria@example.com'], [
             'name' => 'Dr Maria Wiśniewska',
-            'email' => 'maria@example.com',
-            'password' => bcrypt('password'),
+            'password' => Hash::make('password'),
             'role' => 'therapist',
             'is_specialist' => true,
             'specialization' => 'Terapia behawioralna, ABA',
