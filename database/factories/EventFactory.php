@@ -22,14 +22,14 @@ class EventFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(3),
-            'description' => fake()->paragraph(),
-            'start_date' => fake()->dateTimeBetween('+1 days', '+30 days'),
-            'end_date' => fake()->dateTimeBetween('+1 days', '+30 days'),
-            'location' => fake()->city(),
+            'title' => $this->faker->sentence(3),
+            'description' => $this->faker->paragraph(),
+            'start_date' => $this->faker->dateTimeBetween('+1 days', '+30 days'),
+            'end_date' => $this->faker->dateTimeBetween('+1 days', '+30 days'),
+            'location' => $this->faker->city(),
             'facility_id' => null,
             'user_id' => User::factory(),
-            'is_public' => fake()->boolean(80), // 80% publiczne
+            'is_public' => $this->faker->boolean(80), // 80% publiczne
         ];
     }
 }

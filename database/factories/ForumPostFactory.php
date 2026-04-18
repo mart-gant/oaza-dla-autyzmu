@@ -21,7 +21,7 @@ class ForumPostFactory extends Factory
         return [
             'forum_topic_id' => ForumTopic::factory(),
             'user_id' => User::factory(),
-            'body' => fake()->paragraphs(3, true),
+            'body' => $this->faker->paragraphs(3, true),
         ];
     }
 }

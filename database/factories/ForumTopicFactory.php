@@ -21,7 +21,7 @@ class ForumTopicFactory extends Factory
         return [
             'forum_category_id' => ForumCategory::factory(),
             'user_id' => User::factory(),
-            'title' => fake()->sentence(),
+            'title' => $this->faker->sentence(),
         ];
     }
 }
