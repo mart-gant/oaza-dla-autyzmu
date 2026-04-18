@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Conversation;
 use App\Models\Message;
 use App\Models\User;
+use App\Notifications\NewMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -113,7 +114,9 @@ class MessageController extends Controller
         // Update conversation timestamp
         $conversation->update(['last_message_at' => now()]);
 
-        // TODO: Send notification to receiver
+        // Send notification to receiver
+        $receiver = User::find($receiverId);
+        $receiver->notify(new NewMessage($message));
 
         return redirect()->route('messages.show', $conversation)
             ->with('success', 'Message sent successfully!');
