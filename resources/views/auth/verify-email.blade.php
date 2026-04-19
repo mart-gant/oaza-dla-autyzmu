@@ -36,6 +36,19 @@
         </div>
     @endif
 
+    @if (session('mail_error'))
+        <div class="mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 text-red-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10A8 8 0 112 10a8 8 0 0116 0zm-8-4a1 1 0 00-1 1v4a1 1 0 102 0V7a1 1 0 00-1-1zm0 8a1.25 1.25 0 100-2.5A1.25 1.25 0 0010 14z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm text-red-700 dark:text-red-300 font-medium">
+                    {{ session('mail_error') }}
+                </span>
+            </div>
+        </div>
+    @endif
+
     <div class="flex flex-col gap-3">
         <form method="POST" action="{{ route('verification.send') }}">
             @csrf
