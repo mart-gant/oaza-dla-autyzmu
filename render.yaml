@@ -55,20 +55,14 @@ services:
       - key: REDIS_PASSWORD
         sync: false
       - key: MAIL_MAILER
-        value: smtp
-      - key: MAIL_HOST
-        sync: false
-      - key: MAIL_PORT
-        sync: false
-      - key: MAIL_USERNAME
-        sync: false
-      - key: MAIL_PASSWORD
-        sync: false
-      - key: MAIL_ENCRYPTION
+        value: resend
+      - key: RESEND_KEY
         sync: false
       - key: MAIL_FROM_ADDRESS
         sync: false
       - key: MAIL_FROM_NAME
+        sync: false
+      - key: MAIL_TO_ADDRESS
         sync: false
 
 databases:

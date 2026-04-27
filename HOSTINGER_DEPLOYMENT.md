@@ -506,13 +506,15 @@ ls -la public/build/
 ```bash
 # W .env ustaw:
 MAIL_DRIVER=log  # Testowo: sprawdzi w storage/logs/
-# Lub skonfiguruj SMTP:
-MAIL_HOST=smtp.twojego-hostinger.pl
-MAIL_PORT=587
-MAIL_USERNAME=...
-MAIL_PASSWORD=...
-MAIL_FROM_ADDRESS=info@twoja-domena.com
+# Lub skonfiguruj Resend:
+MAIL_MAILER=resend
+RESEND_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+MAIL_FROM_ADDRESS=no-reply@twoja-domena.pl
+MAIL_FROM_NAME="Oaza dla Autyzmu"
+MAIL_TO_ADDRESS=kontakt@twoja-domena.pl
 ```
+
+Adres `MAIL_FROM_ADDRESS` musi być zweryfikowany w Resend.
 
 ---
 

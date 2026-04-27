@@ -123,25 +123,23 @@ npm run dev
 
 ##  Konfiguracja
 
-### Konfiguracja email (opcjonalnie)
+### Konfiguracja email (Resend)
 
-W pliku `.env` ustaw parametry serwera SMTP:
+Projekt ma już zainstalowany transport `resend`, więc w pliku `.env` ustaw:
 
 ```env
-MAIL_MAILER=failover
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USERNAME=your@gmail.com
-MAIL_PASSWORD=your-app-password-without-spaces
-MAIL_ENCRYPTION=tls
-MAIL_TIMEOUT=15
-MAIL_FROM_ADDRESS=your@gmail.com
+MAIL_MAILER=resend
+RESEND_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+MAIL_FROM_ADDRESS=no-reply@twoja-domena.pl
 MAIL_FROM_NAME="${APP_NAME}"
 MAIL_TO_ADDRESS=kontakt@twoja-domena.pl
 ```
 
-> Laravel Cloud: upewnij się, że wszystkie zmienne `MAIL_*` są ustawione w panelu środowiska (Production),
-> a po zmianie konfiguracji wykonaj redeploy. Dla Gmail używaj **App Password bez spacji**.
+`MAIL_FROM_ADDRESS` musi używać domeny lub adresu zweryfikowanego w Resend. Jeśli chcesz tylko przetestować formularz lokalnie bez wysyłki, ustaw tymczasowo `MAIL_MAILER=log` i sprawdź `storage/logs/laravel.log`.
+
+> Laravel Cloud: ustaw `MAIL_MAILER`, `RESEND_KEY`, `MAIL_FROM_ADDRESS`, `MAIL_FROM_NAME` i `MAIL_TO_ADDRESS` w panelu środowiska, a po zmianie wykonaj redeploy.
+
+> Laravel Forge: ustaw te same zmienne w sekcji Environment, następnie uruchom `php artisan optimize:clear` i zdeployuj aplikację. Szczegóły są w `FORGE_DEPLOYMENT.md`.
 
 ### Konfiguracja storage
 

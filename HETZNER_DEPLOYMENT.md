@@ -274,15 +274,14 @@ SESSION_SAME_SITE=lax
 CACHE_DRIVER=database
 QUEUE_CONNECTION=database
 
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USERNAME=martgant@gmail.com
-MAIL_PASSWORD="mffi qdqy ixfk jgzz"
-MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=martgant@gmail.com
+MAIL_MAILER=resend
+RESEND_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+MAIL_FROM_ADDRESS=no-reply@twoja-domena.pl
 MAIL_FROM_NAME="Oaza dla Autyzmu"
+MAIL_TO_ADDRESS=kontakt@twoja-domena.pl
 ```
+
+`MAIL_FROM_ADDRESS` musi należeć do domeny lub nadawcy zweryfikowanego w Resend.
 
 ### 7.3 Wygeneruj APP_KEY
 ```bash
