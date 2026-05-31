@@ -20,6 +20,7 @@
     </source>
     <php>
         <env name="APP_ENV" value="testing"/>
+        <env name="APP_KEY" value="base64:yhVj7b6F/kL6jG4F5zU+Vb9ZqK/U7N+T+T1A4gBw/fA="/>
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="BROADCAST_CONNECTION" value="null"/>
@@ -32,5 +33,7 @@
         <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
         <env name="NIGHTWATCH_ENABLED" value="false"/>
+        <env name="RESEND_KEY" value="re_testing_key_1234567890"/>
+        <env name="RESEND_API_KEY" value="re_testing_key_1234567890"/>
     </php>
 </phpunit>
