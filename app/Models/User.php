@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 /**
  * @property int $id
@@ -22,7 +23,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  */
 class User extends Authenticatable implements MustVerifyEmail, JWTSubject
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, TwoFactorAuthenticatable;
     
     /**
      * The attributes that are mass assignable.

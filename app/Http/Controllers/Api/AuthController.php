@@ -52,7 +52,7 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => ['required', 'string', 'confirmed', new \App\Rules\StrongPassword()],
             'role' => 'nullable|string|in:parent,autistic_person,therapist,specialist,educator',
         ]);
 
@@ -63,11 +63,20 @@ class AuthController extends Controller
             ], 422);
         }
 
+        $role = $request->role ?? 'parent';
+        $isSpecialist = in_array($role, ['therapist', 'educator', 'specialist']);
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role ?? 'parent',
+            'role' => $role,
+            'profile_photo' => null,
+            'interests' => '',
+            'support_preferences' => '',
+            'is_specialist' => $isSpecialist,
+            'specialization' => $isSpecialist ? '' : null,
+            'description' => $isSpecialist ? '' : null,
         ]);
 
         $token = JWTAuth::fromUser($user);

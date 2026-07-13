@@ -67,6 +67,19 @@
             <x-input-error :messages="$errors->get('role')" class="mt-2" />
         </div>
 
+        <!-- Role Notification Box -->
+        <div id="role-notice-box" class="p-4 rounded-lg hidden transition-all duration-300">
+            <div class="flex items-start">
+                <svg class="w-5 h-5 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                </svg>
+                <div class="text-sm">
+                    <p class="font-medium mb-1" id="role-notice-title"></p>
+                    <p id="role-notice-desc"></p>
+                </div>
+            </div>
+        </div>
+
         <!-- Name -->
         <div>
             <x-input-label for="name" value="Imię i nazwisko" />
@@ -84,20 +97,75 @@
         <!-- Password -->
         <div>
             <x-input-label for="password" value="Hasło" />
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Minimum 8 znaków</p>
+            <div class="relative mt-1">
+                <x-text-input id="password" class="block w-full pr-10"
+                                type="password"
+                                name="password"
+                                required autocomplete="new-password" />
+                <button type="button" onclick="togglePasswordVisibility('password')" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300">
+                    <svg id="eye-open-password" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    <svg id="eye-closed-password" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" />
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Wskaźnik siły hasła -->
+            <div class="mt-3 space-y-2">
+                <div class="flex space-x-1 h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div id="strength-bar-1" class="h-full w-1/5 bg-gray-300 dark:bg-gray-600 transition-colors duration-200"></div>
+                    <div id="strength-bar-2" class="h-full w-1/5 bg-gray-300 dark:bg-gray-600 transition-colors duration-200"></div>
+                    <div id="strength-bar-3" class="h-full w-1/5 bg-gray-300 dark:bg-gray-600 transition-colors duration-200"></div>
+                    <div id="strength-bar-4" class="h-full w-1/5 bg-gray-300 dark:bg-gray-600 transition-colors duration-200"></div>
+                    <div id="strength-bar-5" class="h-full w-1/5 bg-gray-300 dark:bg-gray-600 transition-colors duration-200"></div>
+                </div>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-xs text-gray-500 dark:text-gray-400">
+                    <li id="rule-length" class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        Min. 8 znaków
+                    </li>
+                    <li id="rule-upper" class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        Wielka litera
+                    </li>
+                    <li id="rule-lower" class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        Mała litera
+                    </li>
+                    <li id="rule-number" class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        Cyfra
+                    </li>
+                    <li id="rule-special" class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        Znak specjalny
+                    </li>
+                </ul>
+            </div>
+
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Confirm Password -->
         <div>
             <x-input-label for="password_confirmation" value="Potwierdź hasło" />
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+            <div class="relative mt-1">
+                <x-text-input id="password_confirmation" class="block w-full pr-10"
+                                type="password"
+                                name="password_confirmation" required autocomplete="new-password" />
+                <button type="button" onclick="togglePasswordVisibility('password_confirmation')" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300">
+                    <svg id="eye-open-password_confirmation" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    <svg id="eye-closed-password_confirmation" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" />
+                    </svg>
+                </button>
+            </div>
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
@@ -126,4 +194,97 @@
             transition: transform 0.2s;
         }
     </style>
+
+    <script>
+        // Pokazywanie / Ukrywanie hasła
+        function togglePasswordVisibility(id) {
+            const input = document.getElementById(id);
+            const eyeOpen = document.getElementById('eye-open-' + id);
+            const eyeClosed = document.getElementById('eye-closed-' + id);
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                eyeOpen.classList.add('hidden');
+                eyeClosed.classList.remove('hidden');
+            } else {
+                input.type = 'password';
+                eyeOpen.classList.remove('hidden');
+                eyeClosed.classList.add('hidden');
+            }
+        }
+
+        // Powiadomienia w zależności od wybranej roli
+        const roleNoticeBox = document.getElementById('role-notice-box');
+        const roleNoticeTitle = document.getElementById('role-notice-title');
+        const roleNoticeDesc = document.getElementById('role-notice-desc');
+
+        document.querySelectorAll('input[name="role"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const val = this.value;
+                if (val === 'therapist' || val === 'educator') {
+                    roleNoticeBox.classList.remove('hidden');
+                    roleNoticeBox.className = "p-4 rounded-lg bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 transition-all duration-300";
+                    roleNoticeTitle.innerText = val === 'therapist' ? "Konto Terapeuty" : "Konto Edukatora";
+                    roleNoticeDesc.innerText = "Konta specjalistów wymagają weryfikacji. Po zalogowaniu będziesz mógł uzupełnić dane swojej specjalizacji i opis w profilu, aby być widocznym dla innych użytkowników.";
+                } else if (val === 'autistic_person') {
+                    roleNoticeBox.classList.remove('hidden');
+                    roleNoticeBox.className = "p-4 rounded-lg bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 transition-all duration-300";
+                    roleNoticeTitle.innerText = "Konto Osoby Autystycznej";
+                    roleNoticeDesc.innerText = "Twoje konto zostanie dostosowane pod kątem przyjaznej prezentacji i ułatwień sensorycznych. Witamy w naszej społeczności!";
+                } else {
+                    roleNoticeBox.classList.add('hidden');
+                }
+            });
+        });
+
+        // Trigger change na start jeśli rola jest już zaznaczona
+        const checkedRole = document.querySelector('input[name="role"]:checked');
+        if (checkedRole) {
+            checkedRole.dispatchEvent(new Event('change'));
+        }
+
+        // Walidacja siły hasła w czasie rzeczywistym
+        document.getElementById('password').addEventListener('input', function (e) {
+            const val = e.target.value;
+            const rules = {
+                length: val.length >= 8,
+                upper: /[A-Z]/.test(val),
+                lower: /[a-z]/.test(val),
+                number: /[0-9]/.test(val),
+                special: /[!@#$%^&*(),.?":{}|<>]/.test(val)
+            };
+
+            let score = 0;
+            for (const rule in rules) {
+                const el = document.getElementById('rule-' + rule);
+                const icon = el.querySelector('svg');
+                if (rules[rule]) {
+                    score++;
+                    el.classList.remove('text-gray-500', 'dark:text-gray-400');
+                    el.classList.add('text-green-600', 'dark:text-green-400');
+                    icon.classList.remove('text-gray-400');
+                    icon.classList.add('text-green-600', 'dark:text-green-400');
+                } else {
+                    el.classList.remove('text-green-600', 'dark:text-green-400');
+                    el.classList.add('text-gray-500', 'dark:text-gray-400');
+                    icon.classList.remove('text-green-600', 'dark:text-green-400');
+                    icon.classList.add('text-gray-400');
+                }
+            }
+
+            // Kolory paska
+            const colors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-blue-500', 'bg-green-500'];
+            const activeColor = colors[score - 1] || 'bg-gray-300 dark:bg-gray-600';
+
+            for (let i = 1; i <= 5; i++) {
+                const bar = document.getElementById('strength-bar-' + i);
+                bar.className = 'h-full w-1/5 transition-colors duration-200';
+                if (i <= score) {
+                    bar.classList.add(activeColor);
+                } else {
+                    bar.classList.add('bg-gray-300', 'dark:bg-gray-600');
+                }
+            }
+        });
+    </script>
 </x-guest-layout>

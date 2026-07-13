@@ -145,8 +145,8 @@ test('email must be unique', function () {
     $response = $this->post(route('register'), [
         'name' => 'John Doe',
         'email' => 'taken@example.com',
-        'password' => 'password123',
-        'password_confirmation' => 'password123',
+        'password' => 'Password123!',
+        'password_confirmation' => 'Password123!',
     ]);
     
     $response->assertSessionHasErrors('email');
@@ -156,7 +156,7 @@ test('password must be confirmed', function () {
     $response = $this->post(route('register'), [
         'name' => 'John Doe',
         'email' => 'john@example.com',
-        'password' => 'password123',
+        'password' => 'Password123!',
         'password_confirmation' => 'differentpassword',
     ]);
     

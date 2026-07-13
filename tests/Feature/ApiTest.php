@@ -58,8 +58,8 @@ test('jwt api register creates user and returns token', function () {
     $response = $this->postJson('/api/v1/auth/register', [
         'name' => 'New User',
         'email' => 'newuser@example.com',
-        'password' => 'password123',
-        'password_confirmation' => 'password123',
+        'password' => 'Password123!',
+        'password_confirmation' => 'Password123!',
     ]);
     
     $response->assertStatus(201);

@@ -24,6 +24,26 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::validate($credentials)) {
+            $user = \App\Models\User::where('email', $credentials['email'])->first();
+
+            // Jeśli użytkownik jest zablokowany, pozwól LoginRequest to obsłużyć (wyjątek)
+            if ($user && $user->is_suspended) {
+                $request->authenticate();
+            }
+
+            // Sprawdź czy użytkownik ma aktywne 2FA
+            if ($user && $user->two_factor_secret && $user->two_factor_confirmed_at) {
+                // Zapisz ID użytkownika w sesji (wymagane przez kontroler Fortify)
+                $request->session()->put('login.id', $user->id);
+                $request->session()->put('login.remember', $request->boolean('remember'));
+
+                return redirect()->route('two-factor.login');
+            }
+        }
+
         $request->authenticate();
 
         $request->session()->regenerate();

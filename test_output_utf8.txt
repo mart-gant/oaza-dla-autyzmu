@@ -1,0 +1,431 @@
+﻿
+   PASS  Tests\Unit\ExampleTest
+  Ôťô that true is true                                                    0.02s  
+
+   PASS  Tests\Unit\FacilityModelTest
+  Ôťô facility belongs to user                                             1.31s  
+  Ôťô facility has many reviews                                            0.10s  
+  Ôťô facility fillable attributes work                                    0.07s  
+  Ôťô facility has average rating                                          0.08s  
+
+   PASS  Tests\Unit\MessageModelTest
+  Ôťô conversation can be created between two users                        0.06s  
+  Ôťô conversation between method returns same conversation                0.08s  
+  Ôťô conversation can get other user                                      0.09s  
+  Ôťô conversation hasUser method works correctly                          0.10s  
+  Ôťô message can be marked as read                                        0.17s  
+  Ôťô message isRead returns correct value                                 0.11s  
+  Ôťô unreadFor scope returns only unread messages for user                0.14s  
+  Ôťô conversation relationships work correctly                            0.14s  
+  Ôťô message relationships work correctly                                 0.11s  
+
+   PASS  Tests\Unit\UserModelTest
+  Ôťô user has correct default role                                        0.14s  
+  Ôťô user can check if they are admin                                     0.12s  
+  Ôťô user can have facilities                                             0.13s  
+  Ôťô user can have reviews                                                0.13s  
+  Ôťô user can have forum topics                                           0.16s  
+  Ôťô user can have forum posts                                            0.18s  
+  Ôťô user can have messages sent                                          0.14s  
+  Ôťô user can be suspended                                                0.13s  
+  Ôťô user password is hashed                                              0.13s  
+  Ôťô user email is verified correctly                                     0.13s  
+  Ôťô user casts work correctly                                            0.12s  
+  Ôťô user fillable attributes can be mass assigned                        0.19s  
+  Ôťô user hidden attributes are not in array                              0.11s  
+
+   WARN  Tests\Feature\ApiTest
+  Ôťô jwt api login returns token                                          0.59s  
+  Ôťô jwt api login fails with wrong credentials                           0.15s  
+  Ôťô suspended user cannot login via api                                  0.30s  
+  Ôťô jwt api register creates user and returns token                      1.12s  
+  Ôťô jwt me endpoint returns authenticated user                           0.18s  
+  Ôťô jwt refresh returns new token                                        1.09s  
+  Ôťô jwt logout invalidates token                                         0.17s  
+  Ôťô api requires authentication for protected routes                     0.23s  
+  Ôťô api facilities index returns paginated list                          0.38s  
+  Ôťô api facilities can be filtered by type                               0.31s  
+  Ôťô authenticated user can create facility via api                       0.40s  
+  Ôťô api forum topics can be retrieved                                    0.21s  
+  - api rate limiting works Ôćĺ Rate limiting test may take too long       0.64s  
+
+   PASS  Tests\Feature\AuthTest
+  Ôťô user can register                                                    2.37s  
+  Ôťô user can login with correct credentials                              0.35s  
+  Ôťô user cannot login with incorrect password                            0.39s  
+  Ôťô suspended user cannot login                                          0.13s  
+  Ôťô user can logout                                                      0.11s  
+  Ôťô verified middleware redirects unverified users                       0.15s  
+  Ôťô verified user can access protected routes                            0.35s  
+  Ôťô user can view profile edit page                                      0.25s  
+  Ôťô user can update profile information                                  0.20s  
+  Ôťô user can delete their account                                        0.31s  
+  Ôťô email must be unique                                                 0.18s  
+  Ôťô password must be confirmed                                           0.14s  
+
+   PASS  Tests\Feature\Auth\AuthenticationTest
+  Ôťô login screen can be rendered                                         0.26s  
+  Ôťô users can authenticate using the login screen                        0.13s  
+  Ôťô users can not authenticate with invalid password                     0.35s  
+  Ôťô users can logout                                                     0.17s  
+
+   PASS  Tests\Feature\Auth\EmailVerificationTest
+  Ôťô email verification screen can be rendered                            0.22s  
+  Ôťô email can be verified                                                0.16s  
+  Ôťô email is not verified with invalid hash                              0.17s  
+
+   PASS  Tests\Feature\Auth\PasswordConfirmationTest
+  Ôťô confirm password screen can be rendered                              0.34s  
+  Ôťô password can be confirmed                                            0.20s  
+  Ôťô password is not confirmed with invalid password                      0.38s  
+
+   PASS  Tests\Feature\Auth\PasswordResetTest
+  Ôťô reset password link screen can be rendered                           0.18s  
+  Ôťô reset password link can be requested                                 0.43s  
+  Ôťô reset password screen can be rendered                                0.60s  
+  Ôťô password can be reset with valid token                               0.54s  
+
+   PASS  Tests\Feature\Auth\PasswordUpdateTest
+  Ôťô password can be updated                                              0.28s  
+  Ôťô correct password must be provided to update password                 0.18s  
+
+   PASS  Tests\Feature\Auth\RegistrationTest
+  Ôťô registration screen can be rendered                                  0.24s  
+  Ôťô new users can register                                               0.24s  
+
+   PASS  Tests\Feature\DataExportTest
+  Ôťô user can export their data in json format                            0.41s  
+  Ôťô exported data includes all user facilities                           0.21s  
+  Ôťô exported data includes all user reviews                              0.18s  
+  Ôťô exported data includes forum posts                                   0.18s  
+  Ôťô user can export data in csv format                                   0.18s  
+  Ôťô unauthenticated user cannot export data                              0.15s  
+  Ôťô exported data does not include other users data                      0.18s  
+
+   PASS  Tests\Feature\EventTest
+  Ôťô authenticated user can create event                                  0.27s  
+  Ôťô event title is required                                              0.15s  
+  Ôťô event start date must be in future                                   0.30s  
+  Ôťô user can view public events                                          0.28s  
+  Ôťô user cannot view private events of other users                       0.18s  
+  Ôťô user can update their own event                                      0.16s  
+  Ôťô user cannot update another users event                               0.19s  
+  Ôťô admin can update any event                                           0.15s  
+  Ôťô user can delete their own event                                      0.17s  
+  Ôťô events can be filtered by facility                                   0.18s  
+
+   PASS  Tests\Feature\ExampleTest
+  Ôťô the application returns a successful response                        0.16s  
+
+   PASS  Tests\Feature\FacilityTest
+  Ôťô authenticated user can create facility                               0.14s  
+  Ôťô facility name is required                                            0.18s  
+  Ôťô user can view facility details                                       0.21s  
+  Ôťô user can update their own facility                                   0.16s  
+  Ôťô user cannot update another users facility                            0.19s  
+  Ôťô admin can update any facility                                        0.15s  
+  Ôťô user can delete their own facility                                   0.15s  
+  Ôťô facility list can be filtered by city                                0.19s  
+  Ôťô facility can be searched by name                                     0.21s  
+  Ôťô user can add review to facility                                      0.14s  
+
+   PASS  Tests\Feature\ForumTest
+  Ôťô user can view forum categories                                       0.19s  
+  Ôťô user can view topics in a category                                   0.22s  
+  Ôťô authenticated user can create forum topic                            0.15s  
+  Ôťô unauthenticated user cannot create forum topic                       0.12s  
+  Ôťô forum topic title is required                                        0.12s  
+  Ôťô user can view topic with posts                                       0.18s  
+  Ôťô user can reply to topic                                              0.12s  
+  Ôťô user can edit their own post                                         0.13s  
+  Ôťô user cannot edit another users post                                  0.28s  
+  Ôťô admin can edit any post                                              0.14s  
+  Ôťô user can delete their own post                                       0.15s  
+  Ôťô topics can be searched                                               0.25s  
+
+   PASS  Tests\Feature\HealthCheckTest
+  Ôťô health endpoint returns ok and db status                             0.26s  
+
+   FAIL  Tests\Feature\MessageTest
+  Ôťô authenticated user can view messages inbox                           0.65s  
+  Ôťô unauthenticated user cannot view messages inbox                      0.20s  
+  ÔĘ» user can send a message                                              7.84s  
+  Ôťô user cannot send message to themselves                               0.26s  
+  Ôťô message content is required                                          0.17s  
+  Ôťô message content cannot exceed 5000 characters                        0.27s  
+  Ôťô user can view a conversation                                         0.29s  
+  Ôťô user cannot view conversation they are not part of                   0.21s  
+  Ôťô viewing conversation marks messages as read                          0.31s  
+  Ôťô user can search for other users                                      0.18s  
+  Ôťô unread message count is accurate                                     0.28s  
+
+   PASS  Tests\Feature\ProfileTest
+  Ôťô profile page is displayed                                            0.36s  
+  Ôťô profile information can be updated                                   0.17s  
+  Ôťô email verification status is unchanged when the email address is unÔÇŽ 0.20s  
+  Ôťô user can delete their account                                        0.24s  
+  Ôťô correct password must be provided to delete account                  0.17s  
+  ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ  
+   FAILED  Tests\Feature\MessageTest > user can send a message                  
+  Expected response status code [201, 301, 302, 303, 307, 308] but received 500.
+Failed asserting that false is true.
+
+The following exception occurred during the last request:
+
+PDOException: SQLSTATE[HY000]: General error: 1 no such table: notifications in C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+Stack trace:
+#0 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Connection.php(578): PDO->prepare('insert into "no...')
+#1 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Connection.php(827): Illuminate\Database\Connection->{closure:Illuminate\Database\Connection::statement():573}('insert into "no...', Array)
+#2 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Connection.php(794): Illuminate\Database\Connection->runQueryCallback('insert into "no...', Array, Object(Closure))
+#3 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Connection.php(573): Illuminate\Database\Connection->run('insert into "no...', Array, Object(Closure))
+#4 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Connection.php(537): Illuminate\Database\Connection->statement('insert into "no...', Array)
+#5 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(3984): Illuminate\Database\Connection->insert('insert into "no...', Array)
+#6 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(2235): Illuminate\Database\Query\Builder->insert(Array)
+#7 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1412): Illuminate\Database\Eloquent\Builder->__call('insert', Array)
+#8 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1240): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#9 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Relations\HasOneOrMany.php(373): Illuminate\Database\Eloquent\Model->save()
+#10 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Support\helpers.php(390): Illuminate\Database\Eloquent\Relations\HasOneOrMany->{closure:Illuminate\Database\Eloquent\Relations\HasOneOrMany::create():370}(Object(Illuminate\Notifications\DatabaseNotification))
+#11 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Relations\HasOneOrMany.php(370): tap(Object(Illuminate\Notifications\DatabaseNotification), Object(Closure))
+#12 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\Channels\DatabaseChannel.php(19): Illuminate\Database\Eloquent\Relations\HasOneOrMany->create(Array)
+#13 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(163): Illuminate\Notifications\Channels\DatabaseChannel->send(Object(App\Models\User), Object(App\Notifications\NewMessage))
+#14 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(118): Illuminate\Notifications\NotificationSender->sendToNotifiable(Object(App\Models\User), 'b9eb627b-59f0-4...', Object(App\Notifications\NewMessage), 'database')
+#15 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Support\Traits\Localizable.php(19): Illuminate\Notifications\NotificationSender->{closure:Illuminate\Notifications\NotificationSender::sendNow():113}()
+#16 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(113): Illuminate\Notifications\NotificationSender->withLocale(NULL, Object(Closure))
+#17 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\ChannelManager.php(57): Illuminate\Notifications\NotificationSender->sendNow(Object(Illuminate\Database\Eloquent\Collection), Object(App\Notifications\NewMessage), Array)
+#18 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\SendQueuedNotifications.php(118): Illuminate\Notifications\ChannelManager->sendNow(Object(Illuminate\Database\Eloquent\Collection), Object(App\Notifications\NewMessage), Array)
+#19 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): Illuminate\Notifications\SendQueuedNotifications->handle(Object(Illuminate\Notifications\ChannelManager))
+#20 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Container\Util.php(43): Illuminate\Container\BoundMethod::{closure:Illuminate\Container\BoundMethod::call():35}()
+#21 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(96): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
+#22 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(35): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#23 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Container\Container.php(799): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#24 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(129): Illuminate\Container\Container->call(Array)
+#25 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Bus\Dispatcher->{closure:Illuminate\Bus\Dispatcher::dispatchNow():126}(Object(Illuminate\Notifications\SendQueuedNotifications))
+#26 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}(Object(Illuminate\Notifications\SendQueuedNotifications))
+#27 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(133): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#28 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(134): Illuminate\Bus\Dispatcher->dispatchNow(Object(Illuminate\Notifications\SendQueuedNotifications), false)
+#29 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Queue\CallQueuedHandler->{closure:Illuminate\Queue\CallQueuedHandler::dispatchThroughMiddleware():127}(Object(Illuminate\Notifications\SendQueuedNotifications))
+#30 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}(Object(Illuminate\Notifications\SendQueuedNotifications))
+#31 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(127): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#32 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(68): Illuminate\Queue\CallQueuedHandler->dispatchThroughMiddleware(Object(Illuminate\Queue\Jobs\SyncJob), Object(Illuminate\Notifications\SendQueuedNotifications))
+#33 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\Jobs\Job.php(102): Illuminate\Queue\CallQueuedHandler->call(Object(Illuminate\Queue\Jobs\SyncJob), Array)
+#34 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\SyncQueue.php(131): Illuminate\Queue\Jobs\Job->fire()
+#35 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\SyncQueue.php(111): Illuminate\Queue\SyncQueue->executeJob(Object(Illuminate\Notifications\SendQueuedNotifications), '', NULL)
+#36 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(246): Illuminate\Queue\SyncQueue->push(Object(Illuminate\Notifications\SendQueuedNotifications), '', NULL)
+#37 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(230): Illuminate\Bus\Dispatcher->pushCommandToQueue(Object(Illuminate\Queue\SyncQueue), Object(Illuminate\Notifications\SendQueuedNotifications))
+#38 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(80): Illuminate\Bus\Dispatcher->dispatchToQueue(Object(Illuminate\Notifications\SendQueuedNotifications))
+#39 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(271): Illuminate\Bus\Dispatcher->dispatch(Object(Illuminate\Notifications\SendQueuedNotifications))
+#40 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(88): Illuminate\Notifications\NotificationSender->queueNotification(Object(Illuminate\Database\Eloquent\Collection), Object(App\Notifications\NewMessage))
+#41 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\ChannelManager.php(42): Illuminate\Notifications\NotificationSender->send(Object(Illuminate\Database\Eloquent\Collection), Object(App\Notifications\NewMessage))
+#42 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\RoutesNotifications.php(18): Illuminate\Notifications\ChannelManager->send(Object(App\Models\User), Object(App\Notifications\NewMessage))
+#43 C:\Users\marty\Herd\oaza-dla-autyzmu\app\Http\Controllers\MessageController.php(119): App\Models\User->notify(Object(App\Notifications\NewMessage))
+#44 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(46): App\Http\Controllers\MessageController->store(Object(Illuminate\Http\Request))
+#45 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Route.php(265): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\MessageController), 'store')
+#46 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#47 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#48 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->{closure:Illuminate\Routing\Router::runRouteWithinStack():821}(Object(Illuminate\Http\Request))
+#49 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Auth\Middleware\EnsureEmailIsVerified.php(41): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}(Object(Illuminate\Http\Request))
+#50 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\EnsureEmailIsVerified->handle(Object(Illuminate\Http\Request), Object(Closure))
+#51 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#52 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#53 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#54 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#55 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(87): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#56 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#57 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(48): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#58 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#59 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(120): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#60 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(63): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#61 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#62 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(36): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#63 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#64 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(74): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#65 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#66 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#67 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#68 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#69 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#70 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#71 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#72 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->{closure:Illuminate\Foundation\Http\Kernel::dispatchToRouter():197}(Object(Illuminate\Http\Request))
+#73 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}(Object(Illuminate\Http\Request))
+#74 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#75 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#76 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#77 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#78 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#79 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#80 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#81 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#82 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#83 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(48): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#84 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#85 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#86 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#87 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#88 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle(Object(Illuminate\Http\Request), Object(Closure))
+#89 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#90 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle(Object(Illuminate\Http\Request), Object(Closure))
+#91 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#92 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#93 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#94 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#95 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(397): Illuminate\Foundation\Testing\TestCase->call('POST', 'http://oaza-dla...', Array, Array, Array, Array)
+#96 C:\Users\marty\Herd\oaza-dla-autyzmu\tests\Feature\MessageTest.php(28): Illuminate\Foundation\Testing\TestCase->post('http://oaza-dla...', Array)
+#97 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Factories\TestCaseMethodFactory.php(168): P\Tests\Feature\MessageTest->{closure:C:\Users\marty\Herd\oaza-dla-autyzmu\tests\Feature\MessageTest.php:24}()
+#98 [internal function]: P\Tests\Feature\MessageTest->{closure:Pest\Factories\TestCaseMethodFactory::getClosure():158}()
+#99 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Concerns\Testable.php(429): call_user_func_array(Object(Closure), Array)
+#100 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Support\ExceptionTrace.php(26): P\Tests\Feature\MessageTest->{closure:Pest\Concerns\Testable::__callClosure():429}()
+#101 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Concerns\Testable.php(429): Pest\Support\ExceptionTrace::ensure(Object(Closure))
+#102 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Concerns\Testable.php(331): P\Tests\Feature\MessageTest->__callClosure(Object(Closure), Array)
+#103 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Factories\TestCaseFactory.php(169) : eval()'d code(35): P\Tests\Feature\MessageTest->__runTest(Object(Closure))
+#104 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestCase.php(1326): P\Tests\Feature\MessageTest->__pest_evaluable_user_can_send_a_message()
+#105 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestCase.php(519): PHPUnit\Framework\TestCase->runTest()
+#106 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(99): PHPUnit\Framework\TestCase->runBare()
+#107 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestCase.php(359): PHPUnit\Framework\TestRunner->run(Object(P\Tests\Feature\MessageTest))
+#108 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestSuite.php(374): PHPUnit\Framework\TestCase->run()
+#109 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestSuite.php(374): PHPUnit\Framework\TestSuite->run()
+#110 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestSuite.php(374): PHPUnit\Framework\TestSuite->run()
+#111 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#112 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\TextUI\Application.php(229): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#113 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Kernel.php(103): PHPUnit\TextUI\Application->run(Array)
+#114 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\bin\pest(184): Pest\Kernel->handle(Array, Array)
+#115 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\bin\pest(192): {closure:C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\bin\pest:18}()
+#116 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: notifications (Connection: sqlite, Database: :memory:, SQL: insert into "notifications" ("id", "type", "data", "read_at", "notifiable_id", "notifiable_type", "updated_at", "created_at") values (c663c5b6-fdd4-44a2-8001-0e6ddaf9757e, App\Notifications\NewMessage, {"message_id":1,"sender_name":"Tom Howell","sender_id":1,"preview":"Hello, this is a test message!"}, ?, 2, App\Models\User, 2026-04-16 16:15:10, 2026-04-16 16:15:10)) in C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+Stack trace:
+#0 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Connection.php(794): Illuminate\Database\Connection->runQueryCallback('insert into "no...', Array, Object(Closure))
+#1 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Connection.php(573): Illuminate\Database\Connection->run('insert into "no...', Array, Object(Closure))
+#2 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Connection.php(537): Illuminate\Database\Connection->statement('insert into "no...', Array)
+#3 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(3984): Illuminate\Database\Connection->insert('insert into "no...', Array)
+#4 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(2235): Illuminate\Database\Query\Builder->insert(Array)
+#5 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1412): Illuminate\Database\Eloquent\Builder->__call('insert', Array)
+#6 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1240): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#7 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Relations\HasOneOrMany.php(373): Illuminate\Database\Eloquent\Model->save()
+#8 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Support\helpers.php(390): Illuminate\Database\Eloquent\Relations\HasOneOrMany->{closure:Illuminate\Database\Eloquent\Relations\HasOneOrMany::create():370}(Object(Illuminate\Notifications\DatabaseNotification))
+#9 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Relations\HasOneOrMany.php(370): tap(Object(Illuminate\Notifications\DatabaseNotification), Object(Closure))
+#10 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\Channels\DatabaseChannel.php(19): Illuminate\Database\Eloquent\Relations\HasOneOrMany->create(Array)
+#11 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(163): Illuminate\Notifications\Channels\DatabaseChannel->send(Object(App\Models\User), Object(App\Notifications\NewMessage))
+#12 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(118): Illuminate\Notifications\NotificationSender->sendToNotifiable(Object(App\Models\User), 'b9eb627b-59f0-4...', Object(App\Notifications\NewMessage), 'database')
+#13 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Support\Traits\Localizable.php(19): Illuminate\Notifications\NotificationSender->{closure:Illuminate\Notifications\NotificationSender::sendNow():113}()
+#14 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(113): Illuminate\Notifications\NotificationSender->withLocale(NULL, Object(Closure))
+#15 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\ChannelManager.php(57): Illuminate\Notifications\NotificationSender->sendNow(Object(Illuminate\Database\Eloquent\Collection), Object(App\Notifications\NewMessage), Array)
+#16 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\SendQueuedNotifications.php(118): Illuminate\Notifications\ChannelManager->sendNow(Object(Illuminate\Database\Eloquent\Collection), Object(App\Notifications\NewMessage), Array)
+#17 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(36): Illuminate\Notifications\SendQueuedNotifications->handle(Object(Illuminate\Notifications\ChannelManager))
+#18 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Container\Util.php(43): Illuminate\Container\BoundMethod::{closure:Illuminate\Container\BoundMethod::call():35}()
+#19 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(96): Illuminate\Container\Util::unwrapIfClosure(Object(Closure))
+#20 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(35): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#21 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Container\Container.php(799): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#22 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(129): Illuminate\Container\Container->call(Array)
+#23 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Bus\Dispatcher->{closure:Illuminate\Bus\Dispatcher::dispatchNow():126}(Object(Illuminate\Notifications\SendQueuedNotifications))
+#24 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}(Object(Illuminate\Notifications\SendQueuedNotifications))
+#25 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(133): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#26 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(134): Illuminate\Bus\Dispatcher->dispatchNow(Object(Illuminate\Notifications\SendQueuedNotifications), false)
+#27 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Queue\CallQueuedHandler->{closure:Illuminate\Queue\CallQueuedHandler::dispatchThroughMiddleware():127}(Object(Illuminate\Notifications\SendQueuedNotifications))
+#28 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}(Object(Illuminate\Notifications\SendQueuedNotifications))
+#29 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(127): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#30 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\CallQueuedHandler.php(68): Illuminate\Queue\CallQueuedHandler->dispatchThroughMiddleware(Object(Illuminate\Queue\Jobs\SyncJob), Object(Illuminate\Notifications\SendQueuedNotifications))
+#31 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\Jobs\Job.php(102): Illuminate\Queue\CallQueuedHandler->call(Object(Illuminate\Queue\Jobs\SyncJob), Array)
+#32 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\SyncQueue.php(131): Illuminate\Queue\Jobs\Job->fire()
+#33 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Queue\SyncQueue.php(111): Illuminate\Queue\SyncQueue->executeJob(Object(Illuminate\Notifications\SendQueuedNotifications), '', NULL)
+#34 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(246): Illuminate\Queue\SyncQueue->push(Object(Illuminate\Notifications\SendQueuedNotifications), '', NULL)
+#35 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(230): Illuminate\Bus\Dispatcher->pushCommandToQueue(Object(Illuminate\Queue\SyncQueue), Object(Illuminate\Notifications\SendQueuedNotifications))
+#36 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Bus\Dispatcher.php(80): Illuminate\Bus\Dispatcher->dispatchToQueue(Object(Illuminate\Notifications\SendQueuedNotifications))
+#37 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(271): Illuminate\Bus\Dispatcher->dispatch(Object(Illuminate\Notifications\SendQueuedNotifications))
+#38 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\NotificationSender.php(88): Illuminate\Notifications\NotificationSender->queueNotification(Object(Illuminate\Database\Eloquent\Collection), Object(App\Notifications\NewMessage))
+#39 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\ChannelManager.php(42): Illuminate\Notifications\NotificationSender->send(Object(Illuminate\Database\Eloquent\Collection), Object(App\Notifications\NewMessage))
+#40 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Notifications\RoutesNotifications.php(18): Illuminate\Notifications\ChannelManager->send(Object(App\Models\User), Object(App\Notifications\NewMessage))
+#41 C:\Users\marty\Herd\oaza-dla-autyzmu\app\Http\Controllers\MessageController.php(119): App\Models\User->notify(Object(App\Notifications\NewMessage))
+#42 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php(46): App\Http\Controllers\MessageController->store(Object(Illuminate\Http\Request))
+#43 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Route.php(265): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\MessageController), 'store')
+#44 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Route.php(211): Illuminate\Routing\Route->runController()
+#45 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Router.php(822): Illuminate\Routing\Route->run()
+#46 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Routing\Router->{closure:Illuminate\Routing\Router::runRouteWithinStack():821}(Object(Illuminate\Http\Request))
+#47 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Auth\Middleware\EnsureEmailIsVerified.php(41): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}(Object(Illuminate\Http\Request))
+#48 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\EnsureEmailIsVerified->handle(Object(Illuminate\Http\Request), Object(Closure))
+#49 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#50 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#51 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php(63): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#52 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Auth\Middleware\Authenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#53 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(87): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#54 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#55 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(48): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#56 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#57 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(120): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#58 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(63): Illuminate\Session\Middleware\StartSession->handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#59 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#60 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(36): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#61 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#62 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(74): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#63 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#64 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#65 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Router.php(821): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#66 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Router.php(800): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#67 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Router.php(764): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#68 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Routing\Router.php(753): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#69 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#70 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(180): Illuminate\Foundation\Http\Kernel->{closure:Illuminate\Foundation\Http\Kernel::dispatchToRouter():197}(Object(Illuminate\Http\Request))
+#71 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->{closure:Illuminate\Pipeline\Pipeline::prepareDestination():178}(Object(Illuminate\Http\Request))
+#72 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#73 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#74 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#75 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#76 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#77 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#78 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#79 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#80 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#81 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php(48): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#82 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#83 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php(58): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#84 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#85 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#86 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle(Object(Illuminate\Http\Request), Object(Closure))
+#87 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Http\Middleware\ValidatePathEncoding.php(26): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#88 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle(Object(Illuminate\Http\Request), Object(Closure))
+#89 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Pipeline\Pipeline->{closure:{closure:Illuminate\Pipeline\Pipeline::carry():194}:195}(Object(Illuminate\Http\Request))
+#90 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#91 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#92 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(607): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#93 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\laravel\framework\src\Illuminate\Foundation\Testing\Concerns\MakesHttpRequests.php(397): Illuminate\Foundation\Testing\TestCase->call('POST', 'http://oaza-dla...', Array, Array, Array, Array)
+#94 C:\Users\marty\Herd\oaza-dla-autyzmu\tests\Feature\MessageTest.php(28): Illuminate\Foundation\Testing\TestCase->post('http://oaza-dla...', Array)
+#95 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Factories\TestCaseMethodFactory.php(168): P\Tests\Feature\MessageTest->{closure:C:\Users\marty\Herd\oaza-dla-autyzmu\tests\Feature\MessageTest.php:24}()
+#96 [internal function]: P\Tests\Feature\MessageTest->{closure:Pest\Factories\TestCaseMethodFactory::getClosure():158}()
+#97 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Concerns\Testable.php(429): call_user_func_array(Object(Closure), Array)
+#98 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Support\ExceptionTrace.php(26): P\Tests\Feature\MessageTest->{closure:Pest\Concerns\Testable::__callClosure():429}()
+#99 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Concerns\Testable.php(429): Pest\Support\ExceptionTrace::ensure(Object(Closure))
+#100 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Concerns\Testable.php(331): P\Tests\Feature\MessageTest->__callClosure(Object(Closure), Array)
+#101 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Factories\TestCaseFactory.php(169) : eval()'d code(35): P\Tests\Feature\MessageTest->__runTest(Object(Closure))
+#102 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestCase.php(1326): P\Tests\Feature\MessageTest->__pest_evaluable_user_can_send_a_message()
+#103 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestCase.php(519): PHPUnit\Framework\TestCase->runTest()
+#104 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestRunner\TestRunner.php(99): PHPUnit\Framework\TestCase->runBare()
+#105 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestCase.php(359): PHPUnit\Framework\TestRunner->run(Object(P\Tests\Feature\MessageTest))
+#106 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestSuite.php(374): PHPUnit\Framework\TestCase->run()
+#107 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestSuite.php(374): PHPUnit\Framework\TestSuite->run()
+#108 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\Framework\TestSuite.php(374): PHPUnit\Framework\TestSuite->run()
+#109 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\TextUI\TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#110 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\phpunit\phpunit\src\TextUI\Application.php(229): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#111 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\src\Kernel.php(103): PHPUnit\TextUI\Application->run(Array)
+#112 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\bin\pest(184): Pest\Kernel->handle(Array, Array)
+#113 C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\bin\pest(192): {closure:C:\Users\marty\Herd\oaza-dla-autyzmu\vendor\pestphp\pest\bin\pest:18}()
+#114 {main}
+
+----------------------------------------------------------------------------------
+
+SQLSTATE[HY000]: General error: 1 no such table: notifications (Connection: sqlite, Database: :memory:, SQL: insert into "notifications" ("id", "type", "data", "read_at", "notifiable_id", "notifiable_type", "updated_at", "created_at") values (c663c5b6-fdd4-44a2-8001-0e6ddaf9757e, App\Notifications\NewMessage, {"message_id":1,"sender_name":"Tom Howell","sender_id":1,"preview":"Hello, this is a test message!"}, ?, 2, App\Models\User, 2026-04-16 16:15:10, 2026-04-16 16:15:10))
+
+  at tests\Feature\MessageTest.php:33
+     29ÔľĽ         'receiver_id' => $receiver->id,
+     30ÔľĽ         'content' => 'Hello, this is a test message!',
+     31ÔľĽ     ]);
+     32ÔľĽ     
+  Ô×ť  33ÔľĽ     $response->assertRedirect();
+     34ÔľĽ     $response->assertSessionHas('success');
+     35ÔľĽ     
+     36ÔľĽ     $this->assertDatabaseHas('messages', [
+     37ÔľĽ         'sender_id' => $sender->id,
+
+
+  Tests:    1 failed, 1 skipped, 125 passed (367 assertions)
+  Duration: 40.38s
+
