@@ -21,6 +21,39 @@
                 </div>
             @endif
 
+            <!-- Recommendation Banner -->
+            <div class="mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 border-l-4 border-blue-500 p-6 rounded-r-lg shadow-sm">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <svg class="h-6 w-6 text-blue-600 dark:text-blue-400 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">
+                            {{ __('Lista placówek i terapeutów polecana przez Idę Tyminę') }}
+                        </h3>
+                        <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            {{ __('Wszystkie poniższe placówki i terapeuci pochodzą ze sprawdzonej listy rekomendowanej przez Idę Tyminę – doświadczoną specjalistkę z wieloletnim doświadczeniem w terapii osób ze spektrum autyzmu.') }}
+                        </p>
+                        <div class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-xs text-blue-700 dark:text-blue-400 font-medium">
+                            <span class="flex items-center">
+                                <svg class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                </svg>
+                                {{ __('Większość terapeutów przyjmuje również online') }}
+                            </span>
+                            <span class="flex items-center">
+                                <svg class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                {{ __('Aby przeszukać listę, użyj Ctrl + F (⌘ + F)') }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="overflow-x-auto">
