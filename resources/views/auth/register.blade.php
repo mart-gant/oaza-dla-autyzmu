@@ -188,6 +188,33 @@
         </div>
     </form>
 
+    <!-- Divider -->
+    <div class="relative my-6">
+        <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
+        </div>
+        <div class="relative flex justify-center text-sm">
+            <span class="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">{{ __('Lub zarejestruj się przez') }}</span>
+        </div>
+    </div>
+
+    <!-- Social Login Buttons -->
+    <div class="grid grid-cols-2 gap-3 mt-4">
+        <a href="{{ route('social.redirect', 'google') }}" class="flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm bg-white dark:bg-gray-800 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition ease-in-out duration-150">
+            <svg class="h-5 w-5" viewBox="0 0 24 24">
+                <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.115-5.174 4.115-3.411 0-6.19-2.779-6.19-6.19s2.779-6.19 6.19-6.19c1.488 0 2.851.529 3.916 1.398l3.053-3.053C18.824 2.222 15.71 1 12.24 1 6.033 1 12.24 12.24s5.033 11.24 11.24 11.24c5.897 0 10.793-4.225 11.216-9.756l.024-.316h-11.24z"/>
+            </svg>
+            <span>Google</span>
+        </a>
+
+        <a href="{{ route('social.redirect', 'facebook') }}" class="flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm bg-white dark:bg-gray-800 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition ease-in-out duration-150">
+            <svg class="h-5 w-5 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span>Facebook</span>
+        </a>
+    </div>
+
     <style>
         .role-card input:checked ~ div svg {
             transform: scale(1.1);

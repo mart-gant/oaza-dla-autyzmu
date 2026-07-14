@@ -43,6 +43,8 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
         'description',
         'is_suspended',
         'suspended_until',
+        'google_id',
+        'facebook_id',
     ];
     
     /**
