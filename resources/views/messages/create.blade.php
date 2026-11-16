@@ -42,7 +42,7 @@
                                         type="text" 
                                         id="user-search"
                                         class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 pr-10"
-                                        placeholder="Search for a user by name or email..."
+                                        placeholder="Search for a user by name..."
                                         @input.debounce.300ms="
                                             searching = true;
                                             fetch('/api/users/search?q=' + $event.target.value)
@@ -77,7 +77,6 @@
                                                 </div>
                                                 <div>
                                                     <p class="font-medium text-gray-900" x-text="user.name"></p>
-                                                    <p class="text-sm text-gray-500" x-text="user.email"></p>
                                                 </div>
                                             </button>
                                         </template>

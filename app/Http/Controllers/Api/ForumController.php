@@ -48,7 +48,7 @@ class ForumController extends Controller
                       ->orderBy('created_at', 'desc');
         }
 
-        $topics = $query->paginate($request->get('per_page', 20));
+        $topics = $query->paginate(min(max((int) $request->get('per_page', 20), 1), 100));
 
         return ForumTopicResource::collection($topics);
     }

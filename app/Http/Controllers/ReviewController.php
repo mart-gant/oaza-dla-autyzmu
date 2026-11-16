@@ -7,14 +7,6 @@ use App\Models\Facility;
 
 class ReviewController extends Controller
 {
-    public function index($facility_id)
-    {
-        $facility = Facility::findOrFail($facility_id);
-        $reviews = Review::where('facility_id', $facility_id)->get();
-        
-        return view('reviews.index', compact('facility', 'reviews'));
-    }
-    
     public function store(Request $request)
     {
         $validated = $request->validate([

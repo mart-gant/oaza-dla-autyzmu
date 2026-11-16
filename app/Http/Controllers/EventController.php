@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Routing\Controller;
 
 class EventController extends Controller
@@ -33,11 +32,8 @@ class EventController extends Controller
             $query->betweenDates($request->start_date, $request->end_date);
         }
 
-        // Cache dla często używanych zapytań (5 minut)
-        $cacheKey = 'events_' . md5(json_encode($request->all()));
-        $events = Cache::remember($cacheKey, 300, function () use ($query) {
-            return $query->paginate(15);
-        });
+        // Bez cache: Cache::flush() przy zmianach kasował też liczniki limitów logowania
+        $events = $query->paginate(15);
 
         return view('events.index', compact('events'));
     }
@@ -68,8 +64,6 @@ class EventController extends Controller
         $validated['user_id'] = auth()->id();
         $event = Event::create($validated);
 
-        // Czyść cache po dodaniu nowego wydarzenia
-        Cache::flush();
 
         return redirect()->route('events.show', $event)
             ->with('success', 'Wydarzenie zostało utworzone');
@@ -126,8 +120,6 @@ class EventController extends Controller
 
         $event->update($validated);
 
-        // Czyść cache po aktualizacji
-        Cache::flush();
 
         return redirect()->route('events.show', $event)
             ->with('success', 'Wydarzenie zostało zaktualizowane');
@@ -145,8 +137,6 @@ class EventController extends Controller
 
         $event->delete();
 
-        // Czyść cache po usunięciu
-        Cache::flush();
 
         return redirect()->route('events.index')
             ->with('success', 'Wydarzenie zostało usunięte');

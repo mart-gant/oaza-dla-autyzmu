@@ -32,14 +32,17 @@ class SecurityHeaders
         // Content Security Policy (dostosuj według potrzeb)
         $csp = implode('; ', [
             "default-src 'self'",
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net",
-            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-            "font-src 'self' https://fonts.gstatic.com",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com",
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.bunny.net https://unpkg.com",
+            "font-src 'self' https://fonts.gstatic.com https://fonts.bunny.net",
             "img-src 'self' data: https:",
             "connect-src 'self'",
             "frame-ancestors 'none'",
         ]);
-        $response->headers->set('Content-Security-Policy', $csp);
+        // Lokalnie Vite dev server (localhost:5173) byłby zablokowany przez CSP
+        if (! app()->isLocal()) {
+            $response->headers->set('Content-Security-Policy', $csp);
+        }
         
         // Strict Transport Security (HTTPS only - włącz w produkcji)
         if (config('app.env') === 'production') {

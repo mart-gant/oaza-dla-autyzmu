@@ -15,6 +15,10 @@ class ForumPostController extends Controller
             'forum_topic_id' => 'required|exists:forum_topics,id',
         ]);
 
+        // Ta sama zasada co w API: w zamkniętym temacie pisze tylko admin
+        $topic = \App\Models\ForumTopic::findOrFail($request->forum_topic_id);
+        abort_if($topic->is_locked && ! Auth::user()->isAdmin(), 403, 'Ten temat jest zamknięty.');
+
         ForumPost::create([
             'body' => $request->body,
             'user_id' => Auth::id(),

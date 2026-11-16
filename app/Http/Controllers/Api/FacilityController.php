@@ -40,7 +40,7 @@ class FacilityController extends Controller
             $query->where('is_verified', true);
         }
 
-        $facilities = $query->paginate($request->get('per_page', 15));
+        $facilities = $query->paginate(min(max((int) $request->get('per_page', 15), 1), 100));
 
         return FacilityResource::collection($facilities);
     }
