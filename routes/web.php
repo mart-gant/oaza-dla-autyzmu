@@ -118,14 +118,15 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     // API-style admin routes (session-authenticated JSON endpoints)
     Route::prefix('api/admin')->name('api.admin.')->middleware(['auth:sanctum', 'api'])->group(function () {
-        Route::get('/users', [\App\Http\Controllers\Api\Admin\UserController::class, 'index']);
-        Route::post('/users/{user}/role', [\App\Http\Controllers\Api\Admin\UserController::class, 'updateRole']);
-        Route::delete('/users/{user}', [\App\Http\Controllers\Api\Admin\UserController::class, 'destroy']);
-        Route::post('/users/{user}/suspend', [\App\Http\Controllers\Api\Admin\UserController::class, 'suspend']);
-        Route::post('/users/{user}/unsuspend', [\App\Http\Controllers\Api\Admin\UserController::class, 'unsuspend']);
+        // Każda trasa w nazwanej grupie musi mieć własną nazwę, inaczej route:cache się wywraca
+        Route::get('/users', [\App\Http\Controllers\Api\Admin\UserController::class, 'index'])->name('users.index');
+        Route::post('/users/{user}/role', [\App\Http\Controllers\Api\Admin\UserController::class, 'updateRole'])->name('users.updateRole');
+        Route::delete('/users/{user}', [\App\Http\Controllers\Api\Admin\UserController::class, 'destroy'])->name('users.destroy');
+        Route::post('/users/{user}/suspend', [\App\Http\Controllers\Api\Admin\UserController::class, 'suspend'])->name('users.suspend');
+        Route::post('/users/{user}/unsuspend', [\App\Http\Controllers\Api\Admin\UserController::class, 'unsuspend'])->name('users.unsuspend');
 
-        Route::get('/facilities', [\App\Http\Controllers\Api\Admin\FacilityController::class, 'index']);
-        Route::delete('/facilities/{facility}', [\App\Http\Controllers\Api\Admin\FacilityController::class, 'destroy']);
+        Route::get('/facilities', [\App\Http\Controllers\Api\Admin\FacilityController::class, 'index'])->name('facilities.index');
+        Route::delete('/facilities/{facility}', [\App\Http\Controllers\Api\Admin\FacilityController::class, 'destroy'])->name('facilities.destroy');
     });
 });
 
