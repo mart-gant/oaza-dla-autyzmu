@@ -60,8 +60,8 @@ Route::middleware('auth')->group(function () {
 
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
-    Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-        ->name('password.confirm');
+    // Bez nazwy: Fortify rejestruje już password.confirm (/user/confirm-password), a duplikat psuje route:cache
+    Route::get('confirm-password', [ConfirmablePasswordController::class, 'show']);
 
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
