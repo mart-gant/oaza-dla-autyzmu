@@ -14,7 +14,7 @@ class AuditLogController extends Controller
         $query = AuditLog::query()->with('user');
 
         if ($q = request('q')) {
-            $query->where('action', 'like', "%{$q}%")->orWhere('meta', 'like', "%{$q}%");
+            $query->where(fn ($w) => $w->where('action', 'like', "%{$q}%")->orWhere('meta', 'like', "%{$q}%"));
         }
 
         if ($actor = request('actor')) {
@@ -42,7 +42,7 @@ class AuditLogController extends Controller
 
         $query = AuditLog::query();
         if ($q = request('q')) {
-            $query->where('action', 'like', "%{$q}%")->orWhere('meta', 'like', "%{$q}%");
+            $query->where(fn ($w) => $w->where('action', 'like', "%{$q}%")->orWhere('meta', 'like', "%{$q}%"));
         }
         if ($actor = request('actor')) {
             $query->where('user_id', $actor);

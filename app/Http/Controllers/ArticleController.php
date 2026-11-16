@@ -18,8 +18,9 @@ class ArticleController extends Controller
         $articles = Article::with('user')
             ->where('is_published', true)
             ->when($search, function ($query, $search) {
-                return $query->where('title', 'like', "%$search%")
-                    ->orWhere('content', 'like', "%$search%");
+                // Nawias w SQL: bez niego orWhere omija warunek is_published
+                return $query->where(fn ($q) => $q->where('title', 'like', "%$search%")
+                    ->orWhere('content', 'like', "%$search%"));
             })
             ->orderBy('published_at', 'desc')
             ->paginate(10);

@@ -20,32 +20,6 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\DB;
 
-// Debug endpoint
-Route::get('/debug', function () {
-    try {
-        $dbCheck = DB::connection()->getPdo() ? 'OK' : 'FAIL';
-        $cacheCheck = cache()->put('test', 'value', 10) ? 'OK' : 'FAIL';
-        $sessionCheck = session()->put('test', 'value') ? 'OK' : 'FAIL';
-        
-        return response()->json([
-            'status' => 'running',
-            'php' => PHP_VERSION,
-            'laravel' => app()->version(),
-            'env' => config('app.env'),
-            'debug' => config('app.debug'),
-            'database' => $dbCheck,
-            'cache' => $cacheCheck,
-            'session' => $sessionCheck,
-            'session_driver' => config('session.driver'),
-        ]);
-    } catch (\Exception $e) {
-        return response()->json([
-            'error' => $e->getMessage(),
-            'trace' => $e->getTraceAsString()
-        ], 500);
-    }
-});
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -213,7 +187,6 @@ Route::get('/specialists/{id}', [SpecialistController::class, 'show'])->name('sp
 
 
 // **Recenzje placówek**
-Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
     Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
@@ -248,7 +221,7 @@ Route::middleware(['auth', 'verified'])->prefix('messages')->name('messages.')->
 
 // Kontakt
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact');
-Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+Route::post('/contact', [ContactController::class, 'send'])->middleware('throttle.contact')->name('contact.send');
 
 // O projekcie
 Route::get('/about', [AboutController::class, 'index'])->name('about');

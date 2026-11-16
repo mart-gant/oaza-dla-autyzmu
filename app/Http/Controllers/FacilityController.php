@@ -49,17 +49,22 @@ class FacilityController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'postal_code' => 'required|string|max:10',
             'province' => 'required|string|max:255',
-            'phone_number' => 'nullable|string|max:255',
+            'phone' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
             'website' => 'nullable|url|max:255',
+            'description' => 'nullable|string',
+            'latitude' => 'nullable|numeric|between:-90,90',
+            'longitude' => 'nullable|numeric|between:-180,180',
         ]);
-        
-        $facility = new Facility($request->all());
+
+        // Tylko zwalidowane pola: status weryfikacji nadaje wyłącznie admin przy edycji
+        $facility = new Facility($validated);
         $facility->user_id = Auth::id();
         $facility->save();
         
@@ -105,7 +110,7 @@ class FacilityController extends Controller
             abort(403);
         }
 
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:255',
@@ -122,10 +127,11 @@ class FacilityController extends Controller
             'verification_notes' => 'nullable|string|max:1000',
         ]);
 
-        $data = $request->all();
-
-        // Jeśli admin zmienia status weryfikacji, zapisz kto i kiedy
-        if (auth()->user()->isAdmin() && $request->filled('verification_status') && $request->verification_status !== $facility->verification_status) {
+        // Pola weryfikacji zmienia tylko admin; właściciel nie może sam nadać odznaki
+        if (! auth()->user()->isAdmin()) {
+            unset($data['source'], $data['verification_status'], $data['verification_notes']);
+        } elseif ($request->filled('verification_status') && $request->verification_status !== $facility->verification_status) {
+            // Admin zmienia status weryfikacji: zapisz kto i kiedy
             $data['verified_by'] = auth()->id();
             $data['verified_at'] = now();
         }

@@ -40,7 +40,8 @@ class SpecialistController extends Controller
         $specialist = User::create([
             'name' => $request->name,
             'email' => Str::slug($request->name) . '-' . time() . '@example.com',
-            'password' => Hash::make('password'),
+            // Profil bez logowania: nikt nie zna tego hasła
+            'password' => Hash::make(Str::random(40)),
             'is_specialist' => true,
             'specialization' => $request->specialization,
             'description' => $request->description,

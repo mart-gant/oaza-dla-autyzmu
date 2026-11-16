@@ -22,10 +22,9 @@ class UserController extends Controller
         $users = User::where('id', '!=', auth()->id())
             ->where('is_suspended', false)
             ->where(function ($q) use ($query) {
-                $q->where('name', 'like', "%{$query}%")
-                  ->orWhere('email', 'like', "%{$query}%");
+                $q->where('name', 'like', "%{$query}%");
             })
-            ->select('id', 'name', 'email')
+            ->select('id', 'name') // bez e-maili: każdy zalogowany mógłby zebrać adresy wszystkich użytkowników
             ->limit(10)
             ->get();
 

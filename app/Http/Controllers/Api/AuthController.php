@@ -157,6 +157,15 @@ class AuthController extends Controller
             ], 403);
         }
 
+        // API nie ma kroku z kodem 2FA, więc samo hasło nie może wystarczyć
+        if ($user->two_factor_secret && $user->two_factor_confirmed_at) {
+            auth('api')->logout();
+            return response()->json([
+                'success' => false,
+                'message' => 'Two-factor authentication is enabled for this account. Please log in via the website.'
+            ], 403);
+        }
+
         return $this->respondWithToken($token);
     }
 

@@ -49,9 +49,7 @@ class SocialLoginController extends Controller
         $user = User::where($provider . '_id', $socialUser->getId())->first();
 
         if ($user) {
-            // Log in the user
-            Auth::login($user, true);
-            return redirect()->intended('/dashboard');
+            return $this->loginUser($user);
         }
 
         // If user with the same email already exists, link their social account
@@ -63,8 +61,7 @@ class SocialLoginController extends Controller
                     $provider . '_id' => $socialUser->getId()
                 ]);
                 
-                Auth::login($existingUser, true);
-                return redirect()->intended('/dashboard');
+                return $this->loginUser($existingUser);
             }
         }
 
@@ -77,6 +74,27 @@ class SocialLoginController extends Controller
         ]);
 
         Auth::login($newUser, true);
+
+        return redirect()->intended('/dashboard');
+    }
+
+    /**
+     * Te same zasady co przy logowaniu hasłem: blokada konta i 2FA.
+     */
+    private function loginUser(User $user)
+    {
+        if ($user->is_suspended) {
+            return redirect()->route('login')->withErrors(['email' => 'Twoje konto zostało zawieszone.']);
+        }
+
+        if ($user->two_factor_secret && $user->two_factor_confirmed_at) {
+            session()->put('login.id', $user->id);
+            session()->put('login.remember', true);
+
+            return redirect()->route('two-factor.login');
+        }
+
+        Auth::login($user, true);
 
         return redirect()->intended('/dashboard');
     }

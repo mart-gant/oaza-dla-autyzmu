@@ -15,9 +15,13 @@ return Application::configure(basePath: dirname(__DIR__))
         // Trust proxies (required for Render.com and reverse proxies)
         $middleware->trustProxies(at: '*');
         
-        // Globalne middleware bezpieczeństwa (disabled for debugging)
-        // $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
-        // $middleware->append(\App\Http\Middleware\ForceHttps::class);
+        // Globalne middleware bezpieczeństwa
+        $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
+        $middleware->append(\App\Http\Middleware\ForceHttps::class);
+
+        // Zablokowane konta tracą dostęp od razu, także z otwartą sesją lub tokenem JWT
+        $middleware->appendToGroup('web', \App\Http\Middleware\EnsureNotSuspended::class);
+        $middleware->appendToGroup('api', \App\Http\Middleware\EnsureNotSuspended::class);
         
         // Rate limiting dla API
         $middleware->throttleApi();

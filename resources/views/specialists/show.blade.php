@@ -47,6 +47,8 @@
 
                             <div class="mt-6 border-t border-gray-200 dark:border-gray-700">
                                 <dl class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    {{-- Adresy @example.com to techniczne loginy profili tworzonych przez admina --}}
+                                    @unless (str_ends_with($specialist->email, '@example.com'))
                                     <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                         <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">
                                             Adres email
@@ -55,6 +57,7 @@
                                             <a href="mailto:{{ $specialist->email }}" class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200">{{ $specialist->email }}</a>
                                         </dd>
                                     </div>
+                                    @endunless
                                     <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                         <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">
                                             Opis
