@@ -53,7 +53,13 @@ class RegisteredUserController extends Controller
             'description' => $isSpecialist ? '' : null,
         ]);
 
-        event(new Registered($user));
+        // Awaria poczty nie może zostawić użytkownika z błędem 500 przy już utworzonym koncie;
+        // link weryfikacyjny da się wysłać ponownie z ekranu "potwierdź e-mail".
+        try {
+            event(new Registered($user));
+        } catch (\Throwable $e) {
+            report($e);
+        }
 
         Auth::login($user);
 
