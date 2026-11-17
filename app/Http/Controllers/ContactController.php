@@ -16,16 +16,16 @@ class ContactController extends Controller
 
     public function send(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'message' => 'required',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string|max:5000',
         ]);
 
         $recipient = config('mail.contact.to.address');
 
         try {
-            Mail::to($recipient)->send(new ContactMail($request->all()));
+            Mail::to($recipient)->send(new ContactMail($validated));
         } catch (\Throwable $exception) {
             Log::error('Contact form email delivery failed', [
                 'recipient' => $recipient,
